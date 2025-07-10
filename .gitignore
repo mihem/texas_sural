@@ -1,0 +1,12 @@
+*.pdf
+*.xlsx
+*.csv
+*.png
+*.qs
+.Rproj.user
+.vscode
+objects/
+raw/
+scripts/download.sh
+lookup/
+
