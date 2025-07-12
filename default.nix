@@ -8,10 +8,16 @@
 #  > "writexl",
 #  > "qs2"),
 #  > system_pkgs = NULL,
-#  > git_pkgs = list(package_name = "httpgd",
+#  > git_pkgs = list(list(package_name = "httpgd",
 #  > repo_url = "https://github.com/nx10/httpgd",
 #  > commit = "dd6ed3a687a2d7327bb28ca46725a0a203eb2a19"),
-#  > ide = "none",
+#  > list(package_name = "scMisc",
+#  > repo_url = "https://github.com/mihem/scMisc",
+#  > commit = "e2ebddcb779b935551f14216514c0429616fc91d"),
+#  > list(package_name = "presto",
+#  > repo_url = "https://github.com/immunogenomics/presto",
+#  > commit = "7636b3d0465c468c35853f82f1717d3a64b3c8f6")),
+#  >      ide = "none",
 #  > project_path = ".",
 #  > overwrite = TRUE,
 #  > print = TRUE,
@@ -47,6 +53,86 @@ let
           AsioHeaders;
       };
     });
+
+
+    presto = (pkgs.rPackages.buildRPackage {
+      name = "presto";
+      src = pkgs.fetchgit {
+        url = "https://github.com/immunogenomics/presto";
+        rev = "7636b3d0465c468c35853f82f1717d3a64b3c8f6";
+        sha256 = "sha256-Sfjx5e0drUrRA9f0gxmeN8Z3cdz6Q3LBVWM3tV6k8R0=";
+      };
+      propagatedBuildInputs = builtins.attrValues {
+        inherit (pkgs.rPackages) 
+          Rcpp
+          data_table
+          dplyr
+          tidyr
+          purrr
+          tibble
+          Matrix
+          rlang
+          RcppArmadillo;
+      };
+    });
+
+
+    enrichR = (pkgs.rPackages.buildRPackage {
+      name = "enrichR";
+      src = pkgs.fetchgit {
+        url = "https://github.com/wjawaid/enrichR";
+        rev = "c303bd30f58a04e01f29576364462e9fb6130ea2";
+        sha256 = "sha256-HoL6V9GsK1ZthwWH2Gs7JAFlgOJA5mvqN/ecycBUDwI=";
+      };
+      propagatedBuildInputs = builtins.attrValues {
+        inherit (pkgs.rPackages) 
+          httr
+          curl
+          rjson
+          ggplot2
+          WriteXLS;
+      };
+    });
+
+    scMisc = (pkgs.rPackages.buildRPackage {
+      name = "scMisc";
+      src = pkgs.fetchgit {
+        url = "https://github.com/mihem/scMisc";
+        rev = "e2ebddcb779b935551f14216514c0429616fc91d";
+        sha256 = "sha256-Atmr+vGfJxNc5HK+UgpnSIeZ1fYKWEzD3Dt2va1xoFE=";
+      };
+      propagatedBuildInputs = builtins.attrValues {
+        inherit (pkgs.rPackages) 
+          Seurat
+          readr
+          glue
+          viridis
+          ggplot2
+          pheatmap
+          homologene
+          dplyr
+          tibble
+          magrittr
+          clustifyr
+          ggrepel
+          writexl
+          ggsignif
+          patchwork
+          rstatix
+          readxl
+          tidyr
+          speckle
+          limma
+          RColorBrewer
+          factoextra
+          FactoMineR
+          Matrix
+          ggpubr
+          tidyselect
+          stringr
+          forcats;
+      } ++ [ enrichR ];
+    });
     
   system_packages = builtins.attrValues {
     inherit (pkgs) 
@@ -66,6 +152,6 @@ pkgs.mkShell {
    LC_PAPER = "en_US.UTF-8";
    LC_MEASUREMENT = "en_US.UTF-8";
 
-  buildInputs = [ httpgd rpkgs  system_packages   ];
+  buildInputs = [ httpgd scMisc presto rpkgs  system_packages   ];
   
 }
