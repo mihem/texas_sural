@@ -11,7 +11,9 @@ rix(
     "Seurat",
     "readxl",
     "writexl",
-    "qs2"
+    "qs2",
+    "targets",
+    "tarchetypes"
   ),
   system_pkgs = NULL,
   git_pkgs = list(

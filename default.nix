@@ -6,7 +6,9 @@
 #  > "Seurat",
 #  > "readxl",
 #  > "writexl",
-#  > "qs2"),
+#  > "qs2",
+#  > "targets",
+#  > "tarchetypes"),
 #  > system_pkgs = NULL,
 #  > git_pkgs = list(list(package_name = "httpgd",
 #  > repo_url = "https://github.com/nx10/httpgd",
@@ -16,8 +18,8 @@
 #  > commit = "e2ebddcb779b935551f14216514c0429616fc91d"),
 #  > list(package_name = "presto",
 #  > repo_url = "https://github.com/immunogenomics/presto",
-#  > commit = "7636b3d0465c468c35853f82f1717d3a64b3c8f6")),
-#  >      ide = "none",
+#  >      commit = "7636b3d0465c468c35853f82f1717d3a64b3c8f6")),
+#  > ide = "none",
 #  > project_path = ".",
 #  > overwrite = TRUE,
 #  > print = TRUE,
@@ -35,6 +37,8 @@ let
       qs2
       readxl
       Seurat
+      tarchetypes
+      targets
       tidyverse
       writexl;
   };
