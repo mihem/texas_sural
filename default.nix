@@ -8,7 +8,9 @@
 #  > "writexl",
 #  > "qs2",
 #  > "targets",
-#  > "tarchetypes"),
+#  > "tarchetypes",
+#  > "hdf5r",
+#  > "scDblFinder"),
 #  > system_pkgs = NULL,
 #  > git_pkgs = list(list(package_name = "httpgd",
 #  > repo_url = "https://github.com/nx10/httpgd",
@@ -33,9 +35,11 @@ let
  
   rpkgs = builtins.attrValues {
     inherit (pkgs.rPackages) 
+      hdf5r
       languageserver
       qs2
       readxl
+      scDblFinder
       Seurat
       tarchetypes
       targets

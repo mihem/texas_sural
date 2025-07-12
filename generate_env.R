@@ -13,7 +13,9 @@ rix(
     "writexl",
     "qs2",
     "targets",
-    "tarchetypes"
+    "tarchetypes",
+    "hdf5r",
+    "scDblFinder"
   ),
   system_pkgs = NULL,
   git_pkgs = list(
