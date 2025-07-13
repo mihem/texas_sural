@@ -35,6 +35,11 @@ rix(
       package_name = "presto",
       repo_url = "https://github.com/immunogenomics/presto",
       commit = "7636b3d0465c468c35853f82f1717d3a64b3c8f6"
+    ),
+    list(
+      package_name = "BPCells",
+      repo_url = "https://github.com/bnprks/BPCells/r",
+      commit = "9d2a036af9128d34936ad08a43e60a4e4916049c"
     )
   ),
   ide = "none",
