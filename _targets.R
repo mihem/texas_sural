@@ -1,7 +1,6 @@
 # Load libraries for targets
 library(targets)
 library(tarchetypes)
-library(qs2)
 
 # optional libraries for better coding
 library(languageserver)
