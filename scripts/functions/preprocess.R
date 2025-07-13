@@ -2,6 +2,31 @@
 # functions to preprocess scRNAseq data
 ##################################################
 
+# Function to create QC metrics table
+qc_metrics_table <- function() {
+  dir.create(file.path("results", "qc"), showWarnings = FALSE)
+  paths <- seq_path_and_names()
+  seq_names <- paths$seq_names
+  metrics_files <- list.files(
+    "raw",
+    pattern = "metrics_summary.csv",
+    recursive = TRUE,
+    full.names = TRUE
+  )
+
+  metrics_data <- purrr::map_df(metrics_files, readr::read_csv) |>
+    dplyr::mutate(
+      sample = seq_names,
+      .before = `Estimated Number of Cells`
+    ) |>
+    dplyr::arrange(sample)
+
+  readr::write_csv(
+    metrics_data,
+    file.path("results", "qc", "cellranger_metrics.csv")
+  )
+}
+
 # Function to create Seurat objects and calculate QC metrics
 seq_path_and_names <- function() {
   h5_path <- list.files(
@@ -227,29 +252,6 @@ doublet_rate_table <- function(seu_obj_list) {
   readr::write_csv(doublet_tbl, file.path("results", "qc", "doublets.csv"))
 }
 
-# Function to create QC metrics table
-qc_metrics_table <- function() {
-  paths <- seq_path_and_names()
-  seq_names <- paths$seq_names
-  metrics_files <- list.files(
-    "raw",
-    pattern = "metrics_summary.csv",
-    recursive = TRUE,
-    full.names = TRUE
-  )
-
-  metrics_data <- purrr::map_df(metrics_files, readr::read_csv) |>
-    dplyr::mutate(
-      sample = seq_names,
-      .before = `Estimated Number of Cells`
-    ) |>
-    dplyr::arrange(sample)
-
-  readr::write_csv(
-    metrics_data,
-    file.path("results", "qc", "cellranger_metrics.csv")
-  )
-}
 
 # Function to count cells and genes
 count_cells_and_genes <- function(seu_obj_list, seu_obj) {
