@@ -6,6 +6,7 @@
 #  > "Seurat",
 #  > "readxl",
 #  > "writexl",
+#  > "qs",
 #  > "qs2",
 #  > "targets",
 #  > "tarchetypes",
@@ -20,8 +21,8 @@
 #  > repo_url = "https://github.com/mihem/scMisc",
 #  > commit = "e2ebddcb779b935551f14216514c0429616fc91d"),
 #  > list(package_name = "presto",
-#  > repo_url = "https://github.com/immunogenomics/presto",
-#  >      commit = "7636b3d0465c468c35853f82f1717d3a64b3c8f6")),
+#  >      repo_url = "https://github.com/immunogenomics/presto",
+#  > commit = "7636b3d0465c468c35853f82f1717d3a64b3c8f6")),
 #  > ide = "none",
 #  > project_path = ".",
 #  > overwrite = TRUE,
@@ -38,6 +39,7 @@ let
     inherit (pkgs.rPackages) 
       hdf5r
       languageserver
+      qs
       qs2
       readxl
       scDblFinder

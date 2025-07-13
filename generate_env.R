@@ -11,6 +11,7 @@ rix(
     "Seurat",
     "readxl",
     "writexl",
+    "qs",
     "qs2",
     "targets",
     "tarchetypes",
