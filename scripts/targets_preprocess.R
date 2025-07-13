@@ -22,6 +22,6 @@ targets_preprocess <-
     doublet_plots = plot_doublets(sc_list_doublets),
     sc_filter = filter_cells(sc_list_doublets),
     filtered_plots = plot_filtered_cells(sc_filter),
-    # sc_merge_pre = merge_seurat_objects(sc_filter),
-    # sc_merge = normalize_data(sc_merge_pre)
+    sc_merge_pre = merge_seurat_objects(sc_filter),
+    sc_merge = normalize_data(sc_merge_pre)
   )

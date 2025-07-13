@@ -7,8 +7,10 @@ sc_list_doublets|stem|6e50ff2d8e6e9b51|bc31ee8d0439f849|caa7634c8e184e55|1068771
 doublet_plots|stem|fe74f9a80b5983f2|492b220047867e04|02fbd09508f3060d|1318658861||t20282.3708188116s|s98b|98|qs|local|vector|||2.787|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 filter_df|stem||b8d36e3309048c0c|2c530c1562a7fbd1|378847631||t20282.3452131208s||0|qs|local|vector|||11.822||target filter_df attempted to run targets::tar_read() to during a pipeline, which is unsupported except when format is 'file' and repository is 'local', or if you are reading from a data store that does not belong to the current pipeline. This is because functions like tar_read() attempt to access or modify the local data store, which may not exist or be properly synced in certain situations. Also, please be aware that some functions like tar_make() and tar_destroy() should never run inside a target. Please find a different workaround for your use case.
 sc_filter|stem|5aeaf14b16d1d43c|a7dbfb03803ff868|78db4aeca1a43c21|1156243312||t20282.3776419241s|s72776968b|72776968|qs|local|vector|||4.694||
+filtered_plots|stem|68080183d3984669|87a7073cc8bcd2cc|7903c43274a99d2c|1201257466||t20282.3799493436s|s97b|97|qs|local|vector|||4.221|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
+sc_merge_pre|stem|3ceba24943e8ff8e|5d4ebf7e727dd166|dc00389dfd258a0c|-1580387343||t20282.3813111411s|s71948332b|71948332|qs|local|vector|||5.859||
 merge_seurat_objects|function|7bdb1486a8dac079
-normalize_data|function|63f68f9cad5cdec4
+normalize_data|function|28cba3e9207ad26a
 plot_doublets|function|a5cafd9653a3b7af
 plot_filtered_cells|function|69b6c107b1db6cf0
 detect_doublets|function|568ab57fa9fb55a0
@@ -18,4 +20,4 @@ create_seurat_objects|function|9e3d34be48f21f01
 install.packages|function|e3b0a9d56d54eeba
 remove.packages|function|e5e5ba52f888863b
 plot_qc|function|e945191739050bd2
-filtered_plots|stem|68080183d3984669|87a7073cc8bcd2cc|7903c43274a99d2c|1201257466||t20282.3799493436s|s97b|97|qs|local|vector|||4.221|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
+sc_merge|stem|2e5576d40bac31a0|b04c3d815779304c|2c8e54c16b239921|-418119978||t20282.3832982724s|s226115901b|226115901|qs|local|vector|||45.891|Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat|

@@ -87,9 +87,9 @@ merge_seurat_objects <- function(sc_filter) {
 }
 
 # Function to normalize data
-normalize_data <- function(sc_merge_pre) {
+normalize_data <- function(seu_obj) {
   sc_merge <- Seurat::NormalizeData(
-    sc_merge_pre,
+    seu_obj,
     verbose = TRUE,
     normalization.method = "LogNormalize",
     scale.factor = 10000
@@ -102,7 +102,6 @@ normalize_data <- function(sc_merge_pre) {
 
 # Function to plot QC metrics
 plot_qc <- function(seu_obj_list) {
-
   plot1 <- vector("list", length = length(seu_obj_list))
   for (i in seq_along(seu_obj_list)) {
     plot1[[i]] <- FeatureScatter(
