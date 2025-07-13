@@ -1,6 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 plot_qc_metrics|function|16e4a96911eac60d
-sc_list|stem|9cda2ba6f2ec3acf|d50ae40a37638063|f3386ae42dd239d1|1474257539||t20282.3442877923s|s97887141b|97887141|qs|local|vector|||19.612||
 .Random.seed|object|0a6bc5cefd9aeed5
 qc_plots|stem|2187b7ab6ca1277d|842f985172f212e8|6e16d9533ffe4e53|1240161002||t20282.3651874942s|s96b|96|qs|local|vector|||4.123|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 sc_list_doublets|stem|6e50ff2d8e6e9b51|bc31ee8d0439f849|caa7634c8e184e55|1068771690||t20282.3707778165s|s98650476b|98650476|qs|local|vector|||201.005|`PackageCheck()` was deprecated in SeuratObject 5.0.0. ℹ Please use `rlang::check_installed()` instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty|
@@ -9,15 +8,20 @@ filter_df|stem||b8d36e3309048c0c|2c530c1562a7fbd1|378847631||t20282.3452131208s|
 sc_filter|stem|5aeaf14b16d1d43c|a7dbfb03803ff868|78db4aeca1a43c21|1156243312||t20282.3776419241s|s72776968b|72776968|qs|local|vector|||4.694||
 filtered_plots|stem|68080183d3984669|87a7073cc8bcd2cc|7903c43274a99d2c|1201257466||t20282.3799493436s|s97b|97|qs|local|vector|||4.221|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 sc_merge_pre|stem|3ceba24943e8ff8e|5d4ebf7e727dd166|dc00389dfd258a0c|-1580387343||t20282.3813111411s|s71948332b|71948332|qs|local|vector|||5.859||
+sc_merge|stem|2e5576d40bac31a0|b04c3d815779304c|2c8e54c16b239921|-418119978||t20282.3832982724s|s226115901b|226115901|qs|local|vector|||45.891|Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat|
 merge_seurat_objects|function|7bdb1486a8dac079
 normalize_data|function|28cba3e9207ad26a
 plot_doublets|function|a5cafd9653a3b7af
+doublet_rate_table|function|1b98b54616340d10
 plot_filtered_cells|function|69b6c107b1db6cf0
 detect_doublets|function|568ab57fa9fb55a0
 filter_cells|function|bdcd1ba0fd5dcdae
 update.packages|function|30d2377eab38636a
-create_seurat_objects|function|9e3d34be48f21f01
+seq_path_and_names|function|acce52cc1cc7c245
 install.packages|function|e3b0a9d56d54eeba
 remove.packages|function|e5e5ba52f888863b
 plot_qc|function|e945191739050bd2
-sc_merge|stem|2e5576d40bac31a0|b04c3d815779304c|2c8e54c16b239921|-418119978||t20282.3832982724s|s226115901b|226115901|qs|local|vector|||45.891|Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat|
+create_seurat_objects|function|3c82fbd52a8e50dc
+qc_metrics_table|function|f43d0f07e7559b89
+qc_metrics|stem|6b8fb21938ae493e|77c496ba1d876fa6|5a4cd287c2bcf742|1881063006||t20282.3980693552s|s818b|818|qs|local|vector|||11.615||
+sc_list|stem|9cda2ba6f2ec3acf|d50ae40a37638063|f746b66d0c2361d0|1474257539||t20282.3983226232s|s97887141b|97887141|qs|local|vector|||20.106||

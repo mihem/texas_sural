@@ -3,7 +3,7 @@
 ##################################################
 
 # Function to create Seurat objects and calculate QC metrics
-create_seurat_objects <- function() {
+seq_path_and_names <- function() {
   h5_path <- list.files(
     file.path("raw"),
     pattern = ".h5",
@@ -19,6 +19,13 @@ create_seurat_objects <- function() {
       )
     ) |>
     dplyr::pull(name)
+  list(h5_path = h5_path, seq_names = seq_names)
+}
+
+create_seurat_objects <- function() {
+  paths <- seq_path_and_names()
+  h5_path <- paths$h5_path
+  seq_names <- paths$seq_names
   sc_list_matrix <- lapply(h5_path, scMisc::ReadCellBender_h5) |>
     setNames(seq_names)
   sc_list <- lapply(sc_list_matrix, FUN = function(x) {
@@ -205,3 +212,60 @@ plot_filtered_cells <- function(seu_obj_list) {
     height = 5
   )
 }
+
+# Function to create doublet rate table
+doublet_rate_table <- function(sc_list, output_dir) {
+  doublet_tbl <- purrr::map_dfr(
+    purrr::map(sc_list, "meta.data"),
+    dplyr::count,
+    scDblFinder.class
+  ) |>
+    dplyr::mutate(sample = rep(names(sc_list), each = 2)) |>
+    tidyr::pivot_wider(names_from = "scDblFinder.class", values_from = "n") |>
+    dplyr::mutate(doublet_pct = doublet / (singlet + doublet) * 100)
+
+  write_csv(doublet_tbl, file.path(output_dir, "doublets.csv"))
+}
+
+# Function to create QC metrics table
+qc_metrics_table <- function() {
+  paths <- seq_path_and_names()
+  seq_names <- paths$seq_names
+  metrics_files <- list.files(
+    "raw",
+    pattern = "metrics_summary.csv",
+    recursive = TRUE,
+    full.names = TRUE
+  )
+
+  metrics_data <- purrr::map_df(metrics_files, readr::read_csv) |>
+    dplyr::mutate(
+      sample = seq_names,
+      .before = `Estimated Number of Cells`
+    ) |>
+    dplyr::arrange(sample)
+
+  readr::write_csv(
+    metrics_data,
+    file.path("results", "qc", "cellranger_metrics.csv")
+  )
+}
+
+# count_cells <-
+#   purrr::map_df(sc_list, dim) |>
+#   dplyr::slice(2) |>
+#   tidyr::pivot_longer(everything(), names_to = "sample") |>
+#   dplyr::left_join(dplyr::count(sc_merge_pre@meta.data, sample)) |>
+#   dplyr::rename(before = value, after = n)
+
+# write_csv(count_cells, file.path("results", "qc", "count_cells.csv"))
+
+# count_genes <-
+#   dplyr::bind_cols(
+#     feature = sc_merge_pre@meta.data$nFeature_RNA,
+#     sample = sc_merge_pre@meta.data$sample
+#   ) |>
+#   dplyr::group_by(sample) |>
+#   dplyr::summarize(median_genes_after = median(feature))
+
+# write_csv(count_genes, file.path("results", "qc", "count_genes.csv"))

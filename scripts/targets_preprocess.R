@@ -16,6 +16,7 @@ tar_option_set(
 # Define the targets pipeline
 targets_preprocess <-
   tar_plan(
+    qc_metrics = qc_metrics_table(),
     sc_list = create_seurat_objects(),
     qc_plots = plot_qc(sc_list),
     sc_list_doublets = detect_doublets(sc_list),
