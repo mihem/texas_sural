@@ -2,10 +2,6 @@
 library(targets)
 library(tarchetypes)
 
-# optional libraries for better coding
-library(languageserver)
-library(httpgd)
-
 # Source the functions and sub-pipelines
 tar_source(file.path("scripts", "functions", "preprocess.R"))
 tar_source(file.path("scripts", "targets_preprocess.R"))
