@@ -81,23 +81,23 @@ merge_seurat_objects <- function(sc_filter) {
   sc_merge_pre$sample <- gsub(
     x = colnames(sc_merge_pre),
     pattern = "(SN_Dallas_[0-9]+)_.*",
-    replacement = "\1"
+    replacement = "\\1"
   )
   sc_merge_pre
 }
 
 # Function to normalize data
 normalize_data <- function(sc_merge_pre) {
-  sc_merge <- NormalizeData(
+  sc_merge <- Seurat::NormalizeData(
     sc_merge_pre,
     verbose = TRUE,
     normalization.method = "LogNormalize",
     scale.factor = 10000
   )
   sc_merge |>
-    FindVariableFeatures(selection.method = "vst", nfeatures = 2000) |>
-    ScaleData() |>
-    RunPCA()
+    Seurat::FindVariableFeatures(selection.method = "vst", nfeatures = 2000) |>
+    Seurat::ScaleData() |>
+    Seurat::RunPCA()
 }
 
 # Function to plot QC metrics
@@ -166,41 +166,41 @@ plot_doublets <- function(seu_obj_list) {
 }
 
 # Function to plot filtered cells
-plot_filtered_cells <- function(sc_filter, output_dir) {
-  plot4 <- vector("list", length = length(sc_filter))
-  for (i in seq_along(sc_filter)) {
+plot_filtered_cells <- function(seu_obj_list) {
+  plot4 <- vector("list", length = length(seu_obj_list))
+  for (i in seq_along(seu_obj_list)) {
     plot4[[i]] <- FeatureScatter(
-      object = sc_filter[[i]],
+      object = seu_obj_list[[i]],
       feature1 = "nCount_RNA",
       feature2 = "percent_mt",
       raster = FALSE
     ) +
-      labs(title = names(sc_filter)[[i]]) +
+      labs(title = names(seu_obj_list)[[i]]) +
       theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.3)) +
       NoLegend()
   }
   plot4_patch <- patchwork::wrap_plots(plot4, ncol = 4)
   ggsave(
-    file.path(output_dir, "mt_post.png"),
+    file.path("results", "qc", "mt_post.png"),
     plot = plot4_patch,
     width = 15,
     height = 5
   )
 
-  plot5 <- vector("list", length = length(sc_filter))
-  for (i in seq_along(sc_filter)) {
+  plot5 <- vector("list", length = length(seu_obj_list))
+  for (i in seq_along(seu_obj_list)) {
     plot5[[i]] <- FeatureScatter(
-      object = sc_filter[[i]],
+      object = seu_obj_list[[i]],
       feature1 = "nCount_RNA",
       feature2 = "nFeature_RNA"
     ) +
-      labs(title = names(sc_filter)[[i]]) +
+      labs(title = names(seu_obj_list)[[i]]) +
       theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.3)) +
       NoLegend()
   }
   plot5_patch <- patchwork::wrap_plots(plot5, ncol = 4)
   ggsave(
-    file.path(output_dir, "genes_post.png"),
+    file.path("results", "qc", "genes_post.png"),
     plot = plot5_patch,
     width = 15,
     height = 5

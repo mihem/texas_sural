@@ -6,10 +6,11 @@ qc_plots|stem|2187b7ab6ca1277d|842f985172f212e8|6e16d9533ffe4e53|1240161002||t20
 sc_list_doublets|stem|6e50ff2d8e6e9b51|bc31ee8d0439f849|caa7634c8e184e55|1068771690||t20282.3707778165s|s98650476b|98650476|qs|local|vector|||201.005|`PackageCheck()` was deprecated in SeuratObject 5.0.0. ℹ Please use `rlang::check_installed()` instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty|
 doublet_plots|stem|fe74f9a80b5983f2|492b220047867e04|02fbd09508f3060d|1318658861||t20282.3708188116s|s98b|98|qs|local|vector|||2.787|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 filter_df|stem||b8d36e3309048c0c|2c530c1562a7fbd1|378847631||t20282.3452131208s||0|qs|local|vector|||11.822||target filter_df attempted to run targets::tar_read() to during a pipeline, which is unsupported except when format is 'file' and repository is 'local', or if you are reading from a data store that does not belong to the current pipeline. This is because functions like tar_read() attempt to access or modify the local data store, which may not exist or be properly synced in certain situations. Also, please be aware that some functions like tar_make() and tar_destroy() should never run inside a target. Please find a different workaround for your use case.
-merge_seurat_objects|function|d29615bf538c019a
-normalize_data|function|6f3d6b777b25da1b
+sc_filter|stem|5aeaf14b16d1d43c|a7dbfb03803ff868|78db4aeca1a43c21|1156243312||t20282.3776419241s|s72776968b|72776968|qs|local|vector|||4.694||
+merge_seurat_objects|function|7bdb1486a8dac079
+normalize_data|function|63f68f9cad5cdec4
 plot_doublets|function|a5cafd9653a3b7af
-plot_filtered_cells|function|db0ef25ea4184cf6
+plot_filtered_cells|function|69b6c107b1db6cf0
 detect_doublets|function|568ab57fa9fb55a0
 filter_cells|function|bdcd1ba0fd5dcdae
 update.packages|function|30d2377eab38636a
@@ -17,4 +18,4 @@ create_seurat_objects|function|9e3d34be48f21f01
 install.packages|function|e3b0a9d56d54eeba
 remove.packages|function|e5e5ba52f888863b
 plot_qc|function|e945191739050bd2
-sc_filter|stem|5aeaf14b16d1d43c|a7dbfb03803ff868|78db4aeca1a43c21|1156243312||t20282.3776419241s|s72776968b|72776968|qs|local|vector|||4.694||
+filtered_plots|stem|68080183d3984669|87a7073cc8bcd2cc|7903c43274a99d2c|1201257466||t20282.3799493436s|s97b|97|qs|local|vector|||4.221|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
