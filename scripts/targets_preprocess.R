@@ -24,5 +24,6 @@ targets_preprocess <-
     sc_filter = filter_cells(sc_list_doublets),
     filtered_plots = plot_filtered_cells(sc_filter),
     sc_merge_pre = merge_seurat_objects(sc_filter),
+    cells_and_genes_count = count_cells_and_genes(sc_list, sc_merge_pre),
     sc_merge = normalize_data(sc_merge_pre)
   )

@@ -251,6 +251,27 @@ qc_metrics_table <- function() {
   )
 }
 
+# Function to count cells and genes
+count_cells_and_genes <- function(seu_obj_list, seu_obj) {
+  count_cells <-
+    purrr::map_df(seu_obj_list, dim) |>
+    dplyr::slice(2) |>
+    tidyr::pivot_longer(tidyselect::everything(), names_to = "sample") |>
+    dplyr::left_join(dplyr::count(seu_obj@meta.data, sample)) |>
+    dplyr::rename(before = value, after = n)
+  readr::write_csv(count_cells, file.path("results", "qc", "count_cells.csv"))
+
+  count_genes <- data.frame(
+    feature = seu_obj@meta.data$nFeature_RNA,
+    sample = seu_obj@meta.data$sample
+  ) |>
+    dplyr::group_by(sample) |>
+    dplyr::summarize(median_genes_after = median(feature))
+  readr::write_csv(count_genes, file.path("results", "qc", "count_genes.csv"))
+
+  list(count_cells = count_cells, count_genes = count_genes)
+}
+
 # count_cells <-
 #   purrr::map_df(sc_list, dim) |>
 #   dplyr::slice(2) |>
