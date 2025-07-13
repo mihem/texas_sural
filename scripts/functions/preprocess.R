@@ -52,18 +52,21 @@ detect_doublets <- function(seu_obj_list) {
 }
 
 # Function to filter cells
-filter_cells <- function(sc_list, filter_df) {
-  sc_filter <- vector("list", length(sc_list))
-  for (i in seq_along(sc_list)) {
+filter_cells <- function(seu_obj_list) {
+  sc_filter <- vector("list", length(seu_obj_list))
+  filter_df <- read.csv(
+    file.path("lookup", "filter_df.csv"),
+  )
+  for (i in seq_along(seu_obj_list)) {
     sc_filter[[i]] <- subset(
-      sc_list[[i]],
+      seu_obj_list[[i]],
       subset = nFeature_RNA > 200 &
         nFeature_RNA < filter_df$rna[[i]] &
         percent_mt < filter_df$mt[[i]] &
         scDblFinder.class == "singlet"
     )
   }
-  names(sc_filter) <- names(sc_list)
+  names(sc_filter) <- names(seu_obj_list)
   sc_filter
 }
 
