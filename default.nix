@@ -25,7 +25,10 @@
 #  > commit = "7636b3d0465c468c35853f82f1717d3a64b3c8f6"),
 #  > list(package_name = "BPCells",
 #  > repo_url = "https://github.com/bnprks/BPCells/r",
-#  > commit = "9d2a036af9128d34936ad08a43e60a4e4916049c")),
+#  > commit = "9d2a036af9128d34936ad08a43e60a4e4916049c"),
+#  > list(package_name = "STACAS",
+#  > repo_url = "https://github.com/carmonalab/STACAS",
+#  > commit = "1fde4ef460643406683bfcd40909a33264ce3a88")),
 #  > ide = "none",
 #  > project_path = ".",
 #  > overwrite = TRUE,
@@ -53,18 +56,18 @@ let
       visNetwork
       writexl;
   };
-
+ 
    BPCells-src = pkgs.fetchgit {
         url = "https://github.com/bnprks/BPCells";
         rev = "9d2a036af9128d34936ad08a43e60a4e4916049c";
         sha256 = "sha256-iMylruwGersUHsL04dyMNsZCpiJ0h315pii31AyKRuk=";
       };
- 
-    BPCells = (pkgs.rPackages.buildRPackage {
-      name = "BPCells";
-      src = "${BPCells-src}/r";
-      propagatedBuildInputs = builtins.attrValues {
-        inherit (pkgs.rPackages) 
+  
+     BPCells = (pkgs.rPackages.buildRPackage {
+       name = "BPCells";
+       src = "${BPCells-src}/r";
+       propagatedBuildInputs = builtins.attrValues {
+         inherit (pkgs.rPackages) 
           magrittr
           Matrix
           Rcpp
@@ -181,6 +184,28 @@ let
           forcats;
       } ++ [ enrichR ];
     });
+
+    STACAS = (pkgs.rPackages.buildRPackage {
+      name = "STACAS";
+      src = pkgs.fetchgit {
+        url = "https://github.com/carmonalab/STACAS";
+        rev = "1fde4ef460643406683bfcd40909a33264ce3a88";
+        sha256 = "sha256-pFnBUc9wWXEIY0ddRwKo7qdpR4HgLoRypGgCdT23Bsg=";
+      };
+      propagatedBuildInputs = builtins.attrValues {
+        inherit (pkgs.rPackages) 
+          Seurat
+          SeuratObject
+          data_table
+          pbapply
+          ggridges
+          colorspace
+          R_utils
+          ggplot2
+          BiocNeighbors
+          BiocParallel;
+      };
+    });
      
   system_packages = builtins.attrValues {
     inherit (pkgs) 
@@ -198,7 +223,7 @@ let
     LC_PAPER = "en_US.UTF-8";
     LC_MEASUREMENT = "en_US.UTF-8";
     
-    buildInputs = [ httpgd scMisc presto BPCells rpkgs   system_packages   ];
+    buildInputs = [ httpgd scMisc presto BPCells STACAS rpkgs   system_packages   ];
     
   }; 
 in

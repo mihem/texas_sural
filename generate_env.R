@@ -40,6 +40,11 @@ rix(
       package_name = "BPCells",
       repo_url = "https://github.com/bnprks/BPCells/r",
       commit = "9d2a036af9128d34936ad08a43e60a4e4916049c"
+    ),
+    list(
+      package_name = "STACAS",
+      repo_url = "https://github.com/carmonalab/STACAS",
+      commit = "1fde4ef460643406683bfcd40909a33264ce3a88"
     )
   ),
   ide = "none",
