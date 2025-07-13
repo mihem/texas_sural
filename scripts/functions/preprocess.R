@@ -214,17 +214,17 @@ plot_filtered_cells <- function(seu_obj_list) {
 }
 
 # Function to create doublet rate table
-doublet_rate_table <- function(sc_list, output_dir) {
+doublet_rate_table <- function(seu_obj_list) {
   doublet_tbl <- purrr::map_dfr(
-    purrr::map(sc_list, "meta.data"),
+    purrr::map(seu_obj_list, "meta.data"),
     dplyr::count,
     scDblFinder.class
   ) |>
-    dplyr::mutate(sample = rep(names(sc_list), each = 2)) |>
+    dplyr::mutate(sample = rep(names(seu_obj_list), each = 2)) |>
     tidyr::pivot_wider(names_from = "scDblFinder.class", values_from = "n") |>
     dplyr::mutate(doublet_pct = doublet / (singlet + doublet) * 100)
 
-  write_csv(doublet_tbl, file.path(output_dir, "doublets.csv"))
+  readr::write_csv(doublet_tbl, file.path("results", "qc", "doublets.csv"))
 }
 
 # Function to create QC metrics table

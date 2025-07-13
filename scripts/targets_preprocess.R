@@ -21,6 +21,7 @@ targets_preprocess <-
     qc_plots = plot_qc(sc_list),
     sc_list_doublets = detect_doublets(sc_list),
     doublet_plots = plot_doublets(sc_list_doublets),
+    doublet_table = doublet_rate_table(sc_list_doublets),
     sc_filter = filter_cells(sc_list_doublets),
     filtered_plots = plot_filtered_cells(sc_filter),
     sc_merge_pre = merge_seurat_objects(sc_filter),
