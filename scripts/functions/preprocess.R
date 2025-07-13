@@ -1,5 +1,5 @@
 ##################################################
-# preprocess scRNAseq data
+# functions to preprocess scRNAseq data
 ##################################################
 
 # Function to create Seurat objects and calculate QC metrics

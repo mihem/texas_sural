@@ -1,3 +1,7 @@
+##################################################
+# targets pipeline to preprocess scRNAseq data
+##################################################
+
 # Set target options
 tar_option_set(
   packages = c(
