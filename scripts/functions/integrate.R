@@ -27,6 +27,9 @@ run_umap <- function(seu_obj) {
 
 # plot umaps prediction
 plot_umap <- function(seu_obj, group_by) {
+    heming_small_misc <- qs::qread(
+        "/home/mischko/Documents/beruf/forschung/seed/sn_sural_2023_10/objects/sc_merge_small_misc.qs"
+    )
     dir.create(file.path("results", "umap"), showWarnings = FALSE)
     umap <- Seurat::DimPlot(
         seu_obj,
@@ -35,9 +38,10 @@ plot_umap <- function(seu_obj, group_by) {
         raster = FALSE,
         pt.size = .1,
         alpha = .1,
-        # cols = colors_dutch,
+        cols = heming_small_misc$cluster_col,
         label = TRUE
     ) +
+        # Seurat::NoLegend() +
         ggplot2::ggtitle(group_by) +
         scMisc::theme_rect()
     ggplot2::ggsave(

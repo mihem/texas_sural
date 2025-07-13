@@ -9,7 +9,6 @@ sc_filter|stem|5aeaf14b16d1d43c|a7dbfb03803ff868|78db4aeca1a43c21|1156243312||t2
 filtered_plots|stem|68080183d3984669|87a7073cc8bcd2cc|7903c43274a99d2c|1201257466||t20282.3799493436s|s97b|97|qs|local|vector|||4.221|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 sc_merge_pre|stem|3ceba24943e8ff8e|5d4ebf7e727dd166|dc00389dfd258a0c|-1580387343||t20282.3813111411s|s71948332b|71948332|qs|local|vector|||5.859||
 sc_merge|stem|2e5576d40bac31a0|b04c3d815779304c|2c8e54c16b239921|-418119978||t20282.3832982724s|s226115901b|226115901|qs|local|vector|||45.891|Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat. Cannot find a parent environment called Seurat|
-qc_metrics|stem|6b8fb21938ae493e|77c496ba1d876fa6|5a4cd287c2bcf742|1881063006||t20282.3980693552s|s818b|818|qs|local|vector|||11.615||
 sc_list|stem|9cda2ba6f2ec3acf|d50ae40a37638063|f746b66d0c2361d0|1474257539||t20282.3983226232s|s97887141b|97887141|qs|local|vector|||20.106||
 cells_and_genes_count|stem|2bdbceee4c574f3b|c39bafee5282610a|67ec8bc0ba31684a|1212117809||t20282.409298389s|s347b|347|qs|local|vector|||0.115||
 doublet_table|stem|3fd91a00c3247c3c|61537ab0c6239c11|db337079185df0b4|286305155||t20282.4127975188s|s298b|298|qs|local|vector|||0.084||
@@ -18,6 +17,8 @@ sc_merge_predict_milbrandt|stem|8bf23e63b10a2b28|f42e3a99173e7871|60b54f2c11ce65
 sc_merge_predict_heming|stem|babf2ee2e026c054|73ea0cbfae4de836|ec1a95a56d7e3244|-2075481591||t20282.5545819932s|s227826001b|227826001|qs|local|vector|||134.077|The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 sc_merge_stacas|stem|20b71d23dbb494c6|91f2d23e684fcf46|379cb9be8d45575f|-1897791090||t20282.7964126905s|s235866146b|235866146|qs|local|vector|||212.541|The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. sparse->dense coercion: allocating vector of size 1.4 GiB. The `slot` argument of `SetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. Number of dimensions changing from 50 to 30. Number of dimensions changing from 50 to 30. Number of dimensions changing from 50 to 30. Number of dimensions changing from 50 to 30. Layer counts isn't present in the assay object; returning NULL. Layer counts isn't present in the assay object; returning NULL. Layer counts isn't present in the assay object; returning NULL. Layer counts isn't present in the assay object; returning NULL. Adding a dimensional reduction (stacas) without the associated assay being present. Key ‘PC_’ taken, using ‘stacas_’ instead|
 sc_merge_umap|stem|1becd89d4eb20dfb|8da0be1b23dcdf63|1abd1aa889002a95|-1061643208||t20282.8024151029s|s236431055b|236431055|qs|local|vector|||27.154|The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation' This message will be shown once per session. Adding a dimensional reduction (umap) without the associated assay being present|
+colors_dutch|object|0c36c7602cd329b0
+qc_metrics|stem|6b8fb21938ae493e|77c496ba1d876fa6|95076498d056d782|1881063006||t20282.8089968214s|s818b|818|qs|local|vector|||13.016||
 storePred|function|cbb57bad9d6123e3
 update.packages|function|30d2377eab38636a
 remove.packages|function|e5e5ba52f888863b
@@ -31,8 +32,7 @@ doublet_rate_table|function|72013e973715cd5b
 integrate_stacas_ss|function|7dea6766da426acd
 install.packages|function|e3b0a9d56d54eeba
 run_umap|function|e005f26646ec6265
-colors_dutch|object|0c36c7602cd329b0
-plot_umap|function|e4951e3a6f01cf0c
+plot_umap|function|9aae5fe6399bb52c
 filter_cells|function|bdcd1ba0fd5dcdae
 detect_doublets|function|568ab57fa9fb55a0
 plot_filtered_cells|function|69b6c107b1db6cf0
@@ -40,6 +40,6 @@ plot_doublets|function|a5cafd9653a3b7af
 merge_seurat_objects|function|7bdb1486a8dac079
 predict_scRNAseq_heming|function|46fe32226947056e
 predict_scRNAseq_milbrandt|function|a40d11ed1610e977
-qc_metrics_table|function|f43d0f07e7559b89
+qc_metrics_table|function|4b85c4902d198522
 create_seurat_objects|function|3c82fbd52a8e50dc
-umap_heming|stem|a1d053d28a50ac2d|849b2d2e06100ac2|28ebf88310e0585a|682449628||t20282.8071377879s|s110b|110|qs|local|vector|||2.973||
+umap_heming|stem|a1d053d28a50ac2d|849b2d2e06100ac2|1939e9e001967168|682449628||t20282.8170361302s|s110b|110|qs|local|vector|||2.437||
