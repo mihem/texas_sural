@@ -42,6 +42,7 @@ create_seurat_objects <- function() {
 detect_doublets <- function(seu_obj_list) {
   doubletFun <- function(seu_obj) {
     sce <- Seurat::as.SingleCellExperiment(seu_obj)
+    set.seed(1234)
     sce <- scDblFinder::scDblFinder(sce)
     seu_obj$scDblFinder.score <- sce$scDblFinder.score
     seu_obj$scDblFinder.class <- sce$scDblFinder.class
