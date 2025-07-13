@@ -12,10 +12,11 @@ sc_merge|stem|2e5576d40bac31a0|b04c3d815779304c|2c8e54c16b239921|-418119978||t20
 qc_metrics|stem|6b8fb21938ae493e|77c496ba1d876fa6|5a4cd287c2bcf742|1881063006||t20282.3980693552s|s818b|818|qs|local|vector|||11.615||
 sc_list|stem|9cda2ba6f2ec3acf|d50ae40a37638063|f746b66d0c2361d0|1474257539||t20282.3983226232s|s97887141b|97887141|qs|local|vector|||20.106||
 cells_and_genes_count|stem|2bdbceee4c574f3b|c39bafee5282610a|67ec8bc0ba31684a|1212117809||t20282.409298389s|s347b|347|qs|local|vector|||0.115||
+doublet_table|stem|3fd91a00c3247c3c|61537ab0c6239c11|db337079185df0b4|286305155||t20282.4127975188s|s298b|298|qs|local|vector|||0.084||
 merge_seurat_objects|function|7bdb1486a8dac079
 normalize_data|function|28cba3e9207ad26a
 plot_doublets|function|a5cafd9653a3b7af
-doublet_rate_table|function|023904601f051ca4
+doublet_rate_table|function|72013e973715cd5b
 plot_filtered_cells|function|69b6c107b1db6cf0
 detect_doublets|function|568ab57fa9fb55a0
 filter_cells|function|bdcd1ba0fd5dcdae
@@ -27,4 +28,3 @@ plot_qc|function|e945191739050bd2
 count_cells_and_genes|function|5d6814bc243096be
 create_seurat_objects|function|3c82fbd52a8e50dc
 qc_metrics_table|function|f43d0f07e7559b89
-doublet_table|stem|3fd91a00c3247c3c|61537ab0c6239c11|071d7fa35b2376a5|286305155||t20282.4117298954s|s298b|298|qs|local|vector|||0.079||
