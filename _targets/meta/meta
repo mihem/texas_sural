@@ -1,18 +1,19 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 plot_qc_metrics|function|16e4a96911eac60d
 sc_list|stem|9cda2ba6f2ec3acf|d50ae40a37638063|f3386ae42dd239d1|1474257539||t20282.3442877923s|s97887141b|97887141|qs|local|vector|||19.612||
-qc_plots|stem|2187b7ab6ca1277d|842f985172f212e8|3da1e1230550e3a0|1240161002||t20282.344392605s|s96b|96|qs|local|vector|||4.041|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 filter_df|stem||b8d36e3309048c0c|2c530c1562a7fbd1|378847631||t20282.3452131208s||0|qs|local|vector|||0.023||target filter_df attempted to run targets::tar_read() to during a pipeline, which is unsupported except when format is 'file' and repository is 'local', or if you are reading from a data store that does not belong to the current pipeline. This is because functions like tar_read() attempt to access or modify the local data store, which may not exist or be properly synced in certain situations. Also, please be aware that some functions like tar_make() and tar_destroy() should never run inside a target. Please find a different workaround for your use case.
+.Random.seed|object|0a6bc5cefd9aeed5
+sc_list_doublets|stem|e5cf84063aea99ec|bc31ee8d0439f849|1ac3331436434f2c|1068771690||t20282.3485496238s|s98647375b|98647375|qs|local|vector|||214.621|`PackageCheck()` was deprecated in SeuratObject 5.0.0. ℹ Please use `rlang::check_installed()` instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty|
+qc_plots|stem|2187b7ab6ca1277d|842f985172f212e8|6e16d9533ffe4e53|1240161002||t20282.3651874942s|s96b|96|qs|local|vector|||4.123|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
+doublet_plots|stem|fe74f9a80b5983f2|492b220047867e04|6f6227e39c26bd6e|1318658861||t20282.3656236968s|s98b|98|qs|local|vector|||2.721|The `slot` argument of `FetchData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 merge_seurat_objects|function|d29615bf538c019a
 normalize_data|function|6f3d6b777b25da1b
-plot_doublets|function|d28cd82fc98aaeb0
+plot_doublets|function|a5cafd9653a3b7af
 plot_filtered_cells|function|db0ef25ea4184cf6
 detect_doublets|function|8f161dd207f91293
-.Random.seed|object|0a6bc5cefd9aeed5
 filter_cells|function|7a0d14860a0f9e38
 update.packages|function|30d2377eab38636a
 create_seurat_objects|function|9e3d34be48f21f01
 install.packages|function|e3b0a9d56d54eeba
 remove.packages|function|e5e5ba52f888863b
-plot_qc|function|c5ef0b6970703d45
-sc_list_doublets|stem|e5cf84063aea99ec|bc31ee8d0439f849|1ac3331436434f2c|1068771690||t20282.3485496238s|s98647375b|98647375|qs|local|vector|||214.621|`PackageCheck()` was deprecated in SeuratObject 5.0.0. ℹ Please use `rlang::check_installed()` instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty. Layer ‘data’ is empty. Layer ‘scale.data’ is empty|
+plot_qc|function|e945191739050bd2
