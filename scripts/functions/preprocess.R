@@ -2,16 +2,6 @@
 # preprocess scRNAseq data
 ##################################################
 
-# load libraries ------
-library(tidyverse)
-library(readxl)
-library(Seurat)
-library(presto)
-library(writexl)
-library(scMisc)
-library(hdf5r)
-library(scDblFinder)
-
 # Function to create Seurat objects and calculate QC metrics
 create_seurat_objects <- function() {
   h5_path <- list.files(
@@ -107,17 +97,17 @@ normalize_data <- function(sc_merge_pre) {
 }
 
 # Function to plot QC metrics
-plot_qc <- function(seu_obj) {
+plot_qc <- function(seu_obj_list) {
 
-  plot1 <- vector("list", length = length(seu_obj))
-  for (i in seq_along(seu_obj)) {
+  plot1 <- vector("list", length = length(seu_obj_list))
+  for (i in seq_along(seu_obj_list)) {
     plot1[[i]] <- FeatureScatter(
-      object = seu_obj[[i]],
+      object = seu_obj_list[[i]],
       feature1 = "nCount_RNA",
       feature2 = "percent_mt",
       raster = FALSE
     ) +
-      labs(title = names(seu_obj)[[i]]) +
+      labs(title = names(seu_obj_list)[[i]]) +
       theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.3)) +
       NoLegend()
   }
@@ -129,14 +119,14 @@ plot_qc <- function(seu_obj) {
     height = 5
   )
 
-  plot2 <- vector("list", length = length(seu_obj))
-  for (i in seq_along(seu_obj)) {
+  plot2 <- vector("list", length = length(seu_obj_list))
+  for (i in seq_along(seu_obj_list)) {
     plot2[[i]] <- FeatureScatter(
-      object = seu_obj[[i]],
+      object = seu_obj_list[[i]],
       feature1 = "nCount_RNA",
       feature2 = "nFeature_RNA"
     ) +
-      labs(title = names(seu_obj)[[i]]) +
+      labs(title = names(seu_obj_list)[[i]]) +
       theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.3)) +
       NoLegend()
   }
@@ -150,21 +140,21 @@ plot_qc <- function(seu_obj) {
 }
 
 # Function to plot doublets
-plot_doublets <- function(sc_list, output_dir) {
-  plot3 <- vector("list", length = length(sc_list))
-  for (i in seq_along(sc_list)) {
+plot_doublets <- function(seu_obj_list) {
+  plot3 <- vector("list", length = length(seu_obj_list))
+  for (i in seq_along(seu_obj_list)) {
     plot3[[i]] <- FeatureScatter(
-      object = sc_list[[i]],
+      object = seu_obj_list[[i]],
       feature1 = "nCount_RNA",
       feature2 = "nFeature_RNA",
       group.by = "scDblFinder.class"
     ) +
-      labs(title = names(sc_list)[[i]]) +
+      labs(title = names(seu_obj_list)[[i]]) +
       theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.3))
   }
   plot3_patch <- patchwork::wrap_plots(plot3, ncol = 4)
   ggsave(
-    file.path(output_dir, "doublet.png"),
+    file.path("results", "qc", "doublet.png"),
     plot = plot3_patch,
     width = 15,
     height = 5
