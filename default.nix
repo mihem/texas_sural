@@ -24,8 +24,8 @@
 #  >      repo_url = "https://github.com/immunogenomics/presto",
 #  > commit = "7636b3d0465c468c35853f82f1717d3a64b3c8f6"),
 #  > list(package_name = "BPCells",
-#  > repo_url = "https://github.com/bnprks/BPCells",
-#  > commit = "35b9283af88112989b75e07552810b11b0509fc7")),
+#  > repo_url = "https://github.com/bnprks/BPCells/r",
+#  > commit = "9d2a036af9128d34936ad08a43e60a4e4916049c")),
 #  > ide = "none",
 #  > project_path = ".",
 #  > overwrite = TRUE,
@@ -53,18 +53,16 @@ let
       visNetwork
       writexl;
   };
+
+   BPCells-src = pkgs.fetchgit {
+        url = "https://github.com/bnprks/BPCells";
+        rev = "9d2a036af9128d34936ad08a43e60a4e4916049c";
+        sha256 = "sha256-iMylruwGersUHsL04dyMNsZCpiJ0h315pii31AyKRuk=";
+      };
  
     BPCells = (pkgs.rPackages.buildRPackage {
       name = "BPCells";
-      src = pkgs.fetchgit {
-        url = "https://github.com/bnprks/BPCells";
-        rev = "91ed3098bb577dfd4bca49551b797295c05f78c7";
-        sha256 = "sha256-9/aS3eKSep1tWgWxBwuFJnN/k2p0d5u8ukfDcfZsYOo=";
-      };
-      postPatch = ''
-        patchShebangs configure
-      '';
-      nativeBuildInputs = [ pkgs.hdf5.dev ];
+      src = "${BPCells-src}/r";
       propagatedBuildInputs = builtins.attrValues {
         inherit (pkgs.rPackages) 
           magrittr
@@ -72,10 +70,12 @@ let
           Rcpp
           rlang
           vctrs
+          lifecycle
           stringr
           tibble
           dplyr
           tidyr
+          readr
           ggplot2
           scales
           patchwork
@@ -84,8 +84,10 @@ let
           RColorBrewer
           hexbin
           RcppEigen;
-      };
-    });
+       };
+      nativeBuildInputs = [ pkgs.hdf5.dev ];
+      postPatch = "patchShebangs configure";
+      });
 
     httpgd = (pkgs.rPackages.buildRPackage {
       name = "httpgd";
