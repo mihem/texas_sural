@@ -16,24 +16,30 @@ doublet_table|stem|3fd91a00c3247c3c|61537ab0c6239c11|db337079185df0b4|286305155|
 sc_merge_predict|stem|8bf23e63b10a2b28|f42e3a99173e7871|60b54f2c11ce655b|346170965||t20282.4675925334s|s227595927b|227595927|qs|local|vector|||53.058|The `slot` argument of `SetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 sc_merge_predict_milbrandt|stem|8bf23e63b10a2b28|f42e3a99173e7871|60b54f2c11ce655b|284567827||t20282.5014512913s|s227595927b|227595927|qs|local|vector|||59.101|The `slot` argument of `SetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 sc_merge_predict_heming|stem|babf2ee2e026c054|73ea0cbfae4de836|ec1a95a56d7e3244|-2075481591||t20282.5545819932s|s227826001b|227826001|qs|local|vector|||134.077|The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
-merge_seurat_objects|function|7bdb1486a8dac079
-plot_doublets|function|a5cafd9653a3b7af
-doublet_rate_table|function|72013e973715cd5b
-normalize_data|function|28cba3e9207ad26a
-colors_dutch|object|0c36c7602cd329b0
-plot_filtered_cells|function|69b6c107b1db6cf0
-detect_doublets|function|568ab57fa9fb55a0
-filter_cells|function|bdcd1ba0fd5dcdae
-convertRownames|function|52810b023d7b0cbd
-update.packages|function|30d2377eab38636a
-seq_path_and_names|function|acce52cc1cc7c245
-mapSeurat|function|ed1da9bd2a31c35d
+sc_merge_stacas|stem|20b71d23dbb494c6|91f2d23e684fcf46|379cb9be8d45575f|-1897791090||t20282.7964126905s|s235866146b|235866146|qs|local|vector|||212.541|The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. sparse->dense coercion: allocating vector of size 1.4 GiB. The `slot` argument of `SetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. Number of dimensions changing from 50 to 30. Number of dimensions changing from 50 to 30. Number of dimensions changing from 50 to 30. Number of dimensions changing from 50 to 30. Layer counts isn't present in the assay object; returning NULL. Layer counts isn't present in the assay object; returning NULL. Layer counts isn't present in the assay object; returning NULL. Layer counts isn't present in the assay object; returning NULL. Adding a dimensional reduction (stacas) without the associated assay being present. Key ‘PC_’ taken, using ‘stacas_’ instead|
+sc_merge_umap|stem|1becd89d4eb20dfb|8da0be1b23dcdf63|1abd1aa889002a95|-1061643208||t20282.8024151029s|s236431055b|236431055|qs|local|vector|||27.154|The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation' This message will be shown once per session. Adding a dimensional reduction (umap) without the associated assay being present|
 storePred|function|cbb57bad9d6123e3
-install.packages|function|e3b0a9d56d54eeba
+update.packages|function|30d2377eab38636a
 remove.packages|function|e5e5ba52f888863b
-plot_qc|function|e945191739050bd2
 count_cells_and_genes|function|5d6814bc243096be
-create_seurat_objects|function|3c82fbd52a8e50dc
-qc_metrics_table|function|f43d0f07e7559b89
+mapSeurat|function|ed1da9bd2a31c35d
+convertRownames|function|52810b023d7b0cbd
+seq_path_and_names|function|acce52cc1cc7c245
+plot_qc|function|e945191739050bd2
+normalize_data|function|28cba3e9207ad26a
+doublet_rate_table|function|72013e973715cd5b
+integrate_stacas_ss|function|7dea6766da426acd
+install.packages|function|e3b0a9d56d54eeba
+run_umap|function|e005f26646ec6265
+colors_dutch|object|0c36c7602cd329b0
+plot_umap|function|e4951e3a6f01cf0c
+filter_cells|function|bdcd1ba0fd5dcdae
+detect_doublets|function|568ab57fa9fb55a0
+plot_filtered_cells|function|69b6c107b1db6cf0
+plot_doublets|function|a5cafd9653a3b7af
+merge_seurat_objects|function|7bdb1486a8dac079
 predict_scRNAseq_heming|function|46fe32226947056e
 predict_scRNAseq_milbrandt|function|a40d11ed1610e977
+qc_metrics_table|function|f43d0f07e7559b89
+create_seurat_objects|function|3c82fbd52a8e50dc
+umap_heming|stem|a1d053d28a50ac2d|849b2d2e06100ac2|28ebf88310e0585a|682449628||t20282.8071377879s|s110b|110|qs|local|vector|||2.973||

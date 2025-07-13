@@ -36,5 +36,6 @@ colors_dutch <- c(
 # run target pipeline
 list(
     targets_preprocess,
-    targets_predict
+    targets_predict,
+    targets_integrate
 )
