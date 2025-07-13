@@ -14,6 +14,7 @@ rix(
     "qs2",
     "targets",
     "tarchetypes",
+    "visNetwork",
     "hdf5r",
     "scDblFinder"
   ),
