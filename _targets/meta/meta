@@ -16,7 +16,6 @@ sc_merge_predict|stem|8bf23e63b10a2b28|f42e3a99173e7871|60b54f2c11ce655b|3461709
 sc_merge_predict_milbrandt|stem|8bf23e63b10a2b28|f42e3a99173e7871|60b54f2c11ce655b|284567827||t20282.5014512913s|s227595927b|227595927|qs|local|vector|||59.101|The `slot` argument of `SetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 sc_merge_predict_heming|stem|babf2ee2e026c054|73ea0cbfae4de836|ec1a95a56d7e3244|-2075481591||t20282.5545819932s|s227826001b|227826001|qs|local|vector|||134.077|The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.|
 sc_merge_stacas|stem|20b71d23dbb494c6|91f2d23e684fcf46|379cb9be8d45575f|-1897791090||t20282.7964126905s|s235866146b|235866146|qs|local|vector|||212.541|The `slot` argument of `GetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. sparse->dense coercion: allocating vector of size 1.4 GiB. The `slot` argument of `SetAssayData()` is deprecated as of SeuratObject 5.0.0. ℹ Please use the `layer` argument instead. ℹ The deprecated feature was likely used in the Seurat package.   Please report the issue at <https://github.com/satijalab/seurat/issues>.. Number of dimensions changing from 50 to 30. Number of dimensions changing from 50 to 30. Number of dimensions changing from 50 to 30. Number of dimensions changing from 50 to 30. Layer counts isn't present in the assay object; returning NULL. Layer counts isn't present in the assay object; returning NULL. Layer counts isn't present in the assay object; returning NULL. Layer counts isn't present in the assay object; returning NULL. Adding a dimensional reduction (stacas) without the associated assay being present. Key ‘PC_’ taken, using ‘stacas_’ instead|
-sc_merge_umap|stem|1becd89d4eb20dfb|8da0be1b23dcdf63|1abd1aa889002a95|-1061643208||t20282.8024151029s|s236431055b|236431055|qs|local|vector|||27.154|The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation' This message will be shown once per session. Adding a dimensional reduction (umap) without the associated assay being present|
 colors_dutch|object|0c36c7602cd329b0
 qc_metrics|stem|6b8fb21938ae493e|77c496ba1d876fa6|95076498d056d782|1881063006||t20282.8089968214s|s818b|818|qs|local|vector|||13.016||
 storePred|function|cbb57bad9d6123e3
@@ -32,7 +31,8 @@ doublet_rate_table|function|72013e973715cd5b
 integrate_stacas_ss|function|7dea6766da426acd
 install.packages|function|e3b0a9d56d54eeba
 run_umap|function|e005f26646ec6265
-plot_umap|function|9aae5fe6399bb52c
+add_heming_small_misc_colors|function|86eb1963a376e207
+plot_umap|function|c5d5d85d425e1b3f
 filter_cells|function|bdcd1ba0fd5dcdae
 detect_doublets|function|568ab57fa9fb55a0
 plot_filtered_cells|function|69b6c107b1db6cf0
@@ -42,4 +42,6 @@ predict_scRNAseq_heming|function|46fe32226947056e
 predict_scRNAseq_milbrandt|function|a40d11ed1610e977
 qc_metrics_table|function|4b85c4902d198522
 create_seurat_objects|function|3c82fbd52a8e50dc
-umap_heming|stem|a1d053d28a50ac2d|849b2d2e06100ac2|1939e9e001967168|682449628||t20282.8170361302s|s110b|110|qs|local|vector|||2.437||
+sc_merge_heming_colors|stem|6d4dbbb645030687|064cb8651c679ef4|2c10f7940d9c41ee|195683364||t20283.8539162488s|s235866533b|235866533|qs|local|vector|||0.009||
+sc_merge_umap|stem|60138c0285745d9f|4828a6c03f798838|8e9f513bf4374fe1|-1061643208||t20283.8542936757s|s236431456b|236431456|qs|local|vector|||26.152|The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation' This message will be shown once per session. Adding a dimensional reduction (umap) without the associated assay being present|
+umap_heming|stem|a1d053d28a50ac2d|849b2d2e06100ac2|6bbe4ccfe3f3ffe4|682449628||t20283.8543591844s|s110b|110|qs|local|vector|||3.082||

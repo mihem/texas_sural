@@ -16,7 +16,7 @@ integrate_stacas_ss <- function(seu_obj) {
     seu_obj
 }
 
-# # umap ----
+# umap ----
 run_umap <- function(seu_obj) {
     seu_obj <- Seurat::RunUMAP(
         seu_obj,
@@ -25,11 +25,18 @@ run_umap <- function(seu_obj) {
     )
 }
 
-# plot umaps prediction
-plot_umap <- function(seu_obj, group_by) {
+# add colors to heming small misc
+add_heming_small_misc_colors <- function(seu_obj) {
     heming_small_misc <- qs::qread(
         "/home/mischko/Documents/beruf/forschung/seed/sn_sural_2023_10/objects/sc_merge_small_misc.qs"
     )
+    seu_obj@misc$heming_cluster_col <- heming_small_misc$cluster_col
+    seu_obj@misc$heming_cluster_order <- heming_small_misc$cluster_order
+    seu_obj
+}
+
+# plot umaps prediction
+plot_umap <- function(seu_obj, group_by) {
     dir.create(file.path("results", "umap"), showWarnings = FALSE)
     umap <- Seurat::DimPlot(
         seu_obj,
@@ -38,7 +45,7 @@ plot_umap <- function(seu_obj, group_by) {
         raster = FALSE,
         pt.size = .1,
         alpha = .1,
-        cols = heming_small_misc$cluster_col,
+        cols = seu_obj@misc$heming_cluster_col,
         label = TRUE
     ) +
         # Seurat::NoLegend() +
