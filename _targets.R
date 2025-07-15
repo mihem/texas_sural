@@ -14,4 +14,5 @@ list(
     targets_preprocess,
     targets_predict,
     targets_integrate
+    # targets_abundance
 )
