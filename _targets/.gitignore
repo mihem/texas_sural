@@ -9,3 +9,5 @@
 !meta
 meta/*
 !meta/meta
+result
+.github/copilot-instructions.md
