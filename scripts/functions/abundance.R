@@ -1,63 +1,72 @@
 ##################################################
 # functions to calculate abundance
 ##################################################
-plot_abundance <- function(seu_obj) {
+# function to plot abundance
+plot_abundance <- function(sc_heming_texas) {
     dir.create(file.path("results", "abundance"), showWarnings = FALSE)
-    abundance_plot <- scMisc::stackedPlot(
-        object = seu_obj,
+    sc_heming_texas <- subset(sc_heming_texas, cluster != "unknown")
+    scMisc::stackedPlot(
+        object = sc_heming_texas,
         x_axis = "sample",
-        y_axis = "heming_label",
-        x_order = unique(seu_obj$sample),
-        y_order = seu_obj@misc$heming_cluster_order,
-        color = seu_obj@misc$heming_cluster_col,
-        width = 10
+        y_axis = "cluster",
+        x_order = unique(sc_heming_texas$sample),
+        y_order = sc_heming_texas@misc$heming_cluster_order,
+        color = sc_heming_texas@misc$heming_cluster_col,
+        width = 10,
+        dir_output = file.path("results", "abundance"),
     )
-    ggplot2::ggsave(
-        file.path("results", "abundance", "abundance_plot.png"),
-        plot = abundance_plot,
-        width = 5,
-        height = 8
-    )
-    return(abundance_plot)
 }
 
-# abundance_plot <- scMisc::stackedPlot(
-#     object = seu_obj,
-#     x_axis = "sample",
-#     y_axis = "cluster",
-#     x_order = unique(sc_merge_heming_texas_small$sample),
-#     y_order = sc_merge_heming_texas_small@misc$heming_cluster_order,
-#     color = sc_merge_heming_texas_small@misc$heming_cluster_col,
-#     width = 10
-# )
+# function to create a sample lookup table
+create_sample_lookup <- function() {
+    sample_lookup_texas <- readr::read_csv(file.path(
+        "lookup",
+        "sample_lookup_texas.csv"
+    ))
 
-# sample_lookup <-
-#     readr::read_csv(
-#         "/home/mischko/Documents/beruf/forschung/seed/sn_sural_2023_10/lookup/sample_lookup.csv"
-#     ) |>
-#     mutate(level0 = if_else(level1 == "CTRL", "CTRL", "PNP"))
-# propeller_PNP_CTRL <-
-#     scMisc::propellerCalc(
-#         seu_obj1 = sc_merge_heming_texas,
-#         condition1 = "DPN_Texas",
-#         condition2 = "CTRL",
-#         cluster_col = "cluster",
-#         meta_col = "level2",
-#         lookup = sample_lookup,
-#         sample_col = "sample",
-#         formula = "~0 + level2",
-#         min_cells = 30
-#     )
+    sample_lookup_heming <- readr::read_csv(file.path(
+        "lookup",
+        "sample_lookup_heming.csv"
+    ))
 
-# scMisc::plotPropeller(
-#     data = propeller_PNP_CTRL,
-#     color = sc_merge@misc$cluster_col,
-#     filename = "PNP_CTRL",
-#     FDR = 0.1
-# )
+    sample_lookup <- dplyr::bind_rows(
+        sample_lookup_heming,
+        sample_lookup_texas
+    )
+    return(sample_lookup)
+}
 
-# scMisc::dotplotPropeller(
-#     data = propeller_PNP_CTRL,
-#     color = sc_merge@misc$cluster_col,
-#     filename = "PNP_CTRL",
-# )
+# function to calculate propeller DPN_Texas vs CTRL
+plot_propeller_DPN_CTRL <- function(
+    seu_obj,
+    sample_lookup,
+    condition1,
+    condition2
+) {
+    seu_obj <- subset(seu_obj, cluster != "unknown")
+    propeller_data <-
+        scMisc::propellerCalc(
+            seu_obj1 = seu_obj,
+            condition1 = condition1,
+            condition2 = condition2,
+            cluster_col = "cluster",
+            meta_col = "level2",
+            lookup = sample_lookup,
+            sample_col = "sample",
+            formula = "~0 + level2",
+            min_cells = 10
+        )
+
+    scMisc::plotPropeller(
+        data = propeller_data,
+        color = seu_obj@misc$heming_cluster_col,
+        dir_output = file.path("results", "abundance"),
+        filename = paste0(
+            condition1,
+            "_vs_",
+            condition2,
+            ".pdf"
+        ),
+        FDR = 0.1
+    )
+}

@@ -13,6 +13,6 @@ options(future.globals.maxSize = 16000 * 1024^2)
 list(
     targets_preprocess,
     targets_predict,
-    targets_integrate
-    # targets_abundance
+    targets_integrate,
+    targets_abundance
 )

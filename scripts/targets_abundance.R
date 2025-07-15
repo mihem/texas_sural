@@ -15,6 +15,24 @@ tar_option_set(
 # Define the targets pipeline
 targets_abundance <-
     tar_plan(
-        # merge
-        # abundance = plot_abundance(sc_merge_umap)
+        abundance_stacked_sample = plot_abundance(sc_heming_texas),
+        sample_lookup = create_sample_lookup(),
+        propeller_DPN_CTRL = plot_propeller_DPN_CTRL(
+            seu_obj = sc_heming_texas,
+            sample_lookup = sample_lookup,
+            condition1 = "DPN_Texas",
+            condition2 = "CTRL"
+        ),
+        propeller_DPN_CIDP = plot_propeller_DPN_CTRL(
+            seu_obj = sc_heming_texas,
+            sample_lookup = sample_lookup,
+            condition1 = "DPN_Texas",
+            condition2 = "CIDP"
+        ),
+        propeller_DPN_CIAP = plot_propeller_DPN_CTRL(
+            seu_obj = sc_heming_texas,
+            sample_lookup = sample_lookup,
+            condition1 = "DPN_Texas",
+            condition2 = "CIAP"
+        )
     )

@@ -24,12 +24,16 @@ sc_merge_info|stem|981e0ad3e3c69735|10095ed59d10319e|3a6daf18a624a4f5|-749460478
 sc_merge_umap|stem|b6c5a050c2dc221a|2e63b9f722f9e6e2|34974a1a3395f438|-1061643208||t20283.9175640289s|s236521538b|236521538|qs|local|vector|||27.009|The default method for RunUMAP has changed from calling Python UMAP via reticulate to the R-native UWOT using the cosine metric To use Python UMAP via reticulate, set umap.method to 'umap-learn' and metric to 'correlation' This message will be shown once per session. Adding a dimensional reduction (umap) without the associated assay being present|
 abundance|stem|7f9872f7dec95ac2|227b4ec97d4bb17b|692a9c757d3c2f80|-616661493||t20283.9176685743s|s236231152b|236231152|qs|local|vector|||2.021||
 umap_heming|stem|26d52198abbfa4f1|849b2d2e06100ac2|625700cdd1efb43d|682449628||t20283.9177726336s|s246203445b|246203445|qs|local|vector|||1.564||
+sc_heming_texas|stem|4c3c4f4e1eb23988|8502a1722645a525|21dcf048818ff2a9|134318639||t20283.9235234709s|s71160404b|71160404|qs|local|vector|||81.039|Different features in new layer data than already exists for data.1. Different cells in new layer data than already exists for data.1. Different features in new layer data than already exists for data.2. Different cells in new layer data than already exists for data.2|
+sample_lookup|stem|23c55ce2a1c0994e|3d63d2fbae2683e2|d71c0b6cb0affbf6|974909909||t20284.769184865s|s681b|681|qs|local|vector|||3.782||
+abundance_stacked_sample|stem|0d7f78b2d1e723f4|d6f404f343eef396|5995977cc38700e7|1823890022||t20284.7694507855s|s70886009b|70886009|qs|local|vector|||6.255||
 storePred|function|cbb57bad9d6123e3
 update.packages|function|30d2377eab38636a
 remove.packages|function|e5e5ba52f888863b
 count_cells_and_genes|function|5d6814bc243096be
 mapSeurat|function|ed1da9bd2a31c35d
 convertRownames|function|52810b023d7b0cbd
+create_sample_lookup|function|1ab1c482225829c3
 seq_path_and_names|function|acce52cc1cc7c245
 plot_qc|function|e945191739050bd2
 doublet_rate_table|function|72013e973715cd5b
@@ -38,16 +42,19 @@ integrate_stacas_ss|function|7dea6766da426acd
 install.packages|function|e3b0a9d56d54eeba
 add_info|function|9b04b97720415c0f
 run_umap|function|e005f26646ec6265
-plot_abundance|function|c9df29ccff31bfc3
+plot_abundance|function|8a2f99d869e4606d
 merge_texas_heming|function|497c1e319cf7e5a2
-plot_umap|function|26a86ec859ed7933
 filter_cells|function|bdcd1ba0fd5dcdae
+plot_umap|function|26a86ec859ed7933
 detect_doublets|function|568ab57fa9fb55a0
 plot_filtered_cells|function|69b6c107b1db6cf0
 plot_doublets|function|a5cafd9653a3b7af
 merge_seurat_objects|function|7bdb1486a8dac079
+plot_propeller_DPN_CTRL|function|80dcd7ae591b1aa4
 predict_scRNAseq_heming|function|46fe32226947056e
 predict_scRNAseq_milbrandt|function|a40d11ed1610e977
 qc_metrics_table|function|4b85c4902d198522
 create_seurat_objects|function|3c82fbd52a8e50dc
-sc_heming_texas|stem|4c3c4f4e1eb23988|8502a1722645a525|21dcf048818ff2a9|134318639||t20283.9235234709s|s71160404b|71160404|qs|local|vector|||81.039|Different features in new layer data than already exists for data.1. Different cells in new layer data than already exists for data.1. Different features in new layer data than already exists for data.2. Different cells in new layer data than already exists for data.2|
+propeller_DPN_CTRL|stem|3caf813dad00eff3|03396ebf4890f195|ec1e350ebef9a78b|237918110||t20284.7762214619s|s140785b|140785|qs|local|vector|||14.725||
+propeller_DPN_CIDP|stem|7fa885b950f57988|f2363f9837ae7346|ec1e350ebef9a78b|1146017357||t20284.7763488811s|s147079b|147079|qs|local|vector|||9.446||
+propeller_DPN_CIAP|stem|6cb135015c63c9ba|848b9b37b692917d|ec1e350ebef9a78b|-1993491763||t20284.776469726s|s147243b|147243|qs|local|vector|||8.906||
