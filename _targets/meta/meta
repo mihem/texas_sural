@@ -27,6 +27,9 @@ umap_heming|stem|26d52198abbfa4f1|849b2d2e06100ac2|625700cdd1efb43d|682449628||t
 sc_heming_texas|stem|4c3c4f4e1eb23988|8502a1722645a525|21dcf048818ff2a9|134318639||t20283.9235234709s|s71160404b|71160404|qs|local|vector|||81.039|Different features in new layer data than already exists for data.1. Different cells in new layer data than already exists for data.1. Different features in new layer data than already exists for data.2. Different cells in new layer data than already exists for data.2|
 sample_lookup|stem|23c55ce2a1c0994e|3d63d2fbae2683e2|d71c0b6cb0affbf6|974909909||t20284.769184865s|s681b|681|qs|local|vector|||3.782||
 abundance_stacked_sample|stem|0d7f78b2d1e723f4|d6f404f343eef396|5995977cc38700e7|1823890022||t20284.7694507855s|s70886009b|70886009|qs|local|vector|||6.255||
+propeller_DPN_CTRL|stem|3caf813dad00eff3|03396ebf4890f195|ec1e350ebef9a78b|237918110||t20284.7762214619s|s140785b|140785|qs|local|vector|||14.725||
+propeller_DPN_CIDP|stem|7fa885b950f57988|f2363f9837ae7346|ec1e350ebef9a78b|1146017357||t20284.7763488811s|s147079b|147079|qs|local|vector|||9.446||
+propeller_DPN_CIAP|stem|6cb135015c63c9ba|848b9b37b692917d|ec1e350ebef9a78b|-1993491763||t20284.776469726s|s147243b|147243|qs|local|vector|||8.906||
 storePred|function|cbb57bad9d6123e3
 update.packages|function|30d2377eab38636a
 remove.packages|function|e5e5ba52f888863b
@@ -55,6 +58,3 @@ predict_scRNAseq_heming|function|46fe32226947056e
 predict_scRNAseq_milbrandt|function|a40d11ed1610e977
 qc_metrics_table|function|4b85c4902d198522
 create_seurat_objects|function|3c82fbd52a8e50dc
-propeller_DPN_CTRL|stem|3caf813dad00eff3|03396ebf4890f195|ec1e350ebef9a78b|237918110||t20284.7762214619s|s140785b|140785|qs|local|vector|||14.725||
-propeller_DPN_CIDP|stem|7fa885b950f57988|f2363f9837ae7346|ec1e350ebef9a78b|1146017357||t20284.7763488811s|s147079b|147079|qs|local|vector|||9.446||
-propeller_DPN_CIAP|stem|6cb135015c63c9ba|848b9b37b692917d|ec1e350ebef9a78b|-1993491763||t20284.776469726s|s147243b|147243|qs|local|vector|||8.906||
