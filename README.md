@@ -27,7 +27,3 @@ tar_make()
 # Check pipeline status
 tar_visnetwork()
 ```
-
-
-### Key Outputs
-- stored in `results/` directory
