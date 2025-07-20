@@ -15,8 +15,14 @@ tar_option_set(
 # Define the targets pipeline
 targets_abundance <-
     tar_plan(
+        # Track CSV files as dependencies
         abundance_stacked_sample = plot_abundance(sc_heming_texas),
-        sample_lookup = create_sample_lookup(),
+        sample_lookup_texas_file = file.path("lookup", "sample_lookup_texas.csv"),
+        sample_lookup_heming_file = file.path("lookup", "sample_lookup_heming.csv"),
+        sample_lookup = create_sample_lookup(
+            texas_file = sample_lookup_texas_file,
+            heming_file = sample_lookup_heming_file
+        ),
         propeller_DPN_CTRL = plot_propeller_DPN_CTRL(
             seu_obj = sc_heming_texas,
             sample_lookup = sample_lookup,

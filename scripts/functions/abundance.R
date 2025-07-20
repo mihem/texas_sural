@@ -18,16 +18,9 @@ plot_abundance <- function(sc_heming_texas) {
 }
 
 # function to create a sample lookup table
-create_sample_lookup <- function() {
-    sample_lookup_texas <- readr::read_csv(file.path(
-        "lookup",
-        "sample_lookup_texas.csv"
-    ))
-
-    sample_lookup_heming <- readr::read_csv(file.path(
-        "lookup",
-        "sample_lookup_heming.csv"
-    ))
+create_sample_lookup <- function(texas_file, heming_file) {
+    sample_lookup_texas <- readr::read_csv(texas_file)
+    sample_lookup_heming <- readr::read_csv(heming_file)
 
     sample_lookup <- dplyr::bind_rows(
         sample_lookup_heming,
@@ -53,7 +46,7 @@ plot_propeller_DPN_CTRL <- function(
             meta_col = "level2",
             lookup = sample_lookup,
             sample_col = "sample",
-            formula = "~0 + level2",
+            formula = "~0 + level2 + age + sex",
             min_cells = 10
         )
 
@@ -64,8 +57,7 @@ plot_propeller_DPN_CTRL <- function(
         filename = paste0(
             condition1,
             "_vs_",
-            condition2,
-            ".pdf"
+            condition2
         ),
         FDR = 0.1
     )

@@ -25,18 +25,17 @@ sc_merge_umap|stem|b6c5a050c2dc221a|2e63b9f722f9e6e2|34974a1a3395f438|-106164320
 abundance|stem|7f9872f7dec95ac2|227b4ec97d4bb17b|692a9c757d3c2f80|-616661493||t20283.9176685743s|s236231152b|236231152|qs|local|vector|||2.021||
 umap_heming|stem|26d52198abbfa4f1|849b2d2e06100ac2|625700cdd1efb43d|682449628||t20283.9177726336s|s246203445b|246203445|qs|local|vector|||1.564||
 sc_heming_texas|stem|4c3c4f4e1eb23988|8502a1722645a525|21dcf048818ff2a9|134318639||t20283.9235234709s|s71160404b|71160404|qs|local|vector|||81.039|Different features in new layer data than already exists for data.1. Different cells in new layer data than already exists for data.1. Different features in new layer data than already exists for data.2. Different cells in new layer data than already exists for data.2|
-sample_lookup|stem|23c55ce2a1c0994e|3d63d2fbae2683e2|d71c0b6cb0affbf6|974909909||t20284.769184865s|s681b|681|qs|local|vector|||3.782||
 abundance_stacked_sample|stem|0d7f78b2d1e723f4|d6f404f343eef396|5995977cc38700e7|1823890022||t20284.7694507855s|s70886009b|70886009|qs|local|vector|||6.255||
-propeller_DPN_CTRL|stem|3caf813dad00eff3|03396ebf4890f195|ec1e350ebef9a78b|237918110||t20284.7762214619s|s140785b|140785|qs|local|vector|||14.725||
-propeller_DPN_CIDP|stem|7fa885b950f57988|f2363f9837ae7346|ec1e350ebef9a78b|1146017357||t20284.7763488811s|s147079b|147079|qs|local|vector|||9.446||
-propeller_DPN_CIAP|stem|6cb135015c63c9ba|848b9b37b692917d|ec1e350ebef9a78b|-1993491763||t20284.776469726s|s147243b|147243|qs|local|vector|||8.906||
+sample_lookup_heming_file|stem|b17e393a07999241|a7400babd2cb3840|2c530c1562a7fbd1|623330456||t20289.6022240183s|s107b|107|qs|local|vector|||3.549||
+sample_lookup_texas_file|stem|79bd27c0b4572786|ad1d52b7afde19ca|2c530c1562a7fbd1|-1369028741||t20289.6022245275s|s106b|106|qs|local|vector|||0||
+sample_lookup|stem|4eb44860c0a4146b|411c1d368bd94b8d|20add6993f9e9d17|974909909||t20289.6022276641s|s840b|840|qs|local|vector|||0.207||
 storePred|function|cbb57bad9d6123e3
 update.packages|function|30d2377eab38636a
 remove.packages|function|e5e5ba52f888863b
 count_cells_and_genes|function|5d6814bc243096be
 mapSeurat|function|ed1da9bd2a31c35d
 convertRownames|function|52810b023d7b0cbd
-create_sample_lookup|function|1ab1c482225829c3
+create_sample_lookup|function|9989978f1ecb7e04
 seq_path_and_names|function|acce52cc1cc7c245
 plot_qc|function|e945191739050bd2
 doublet_rate_table|function|72013e973715cd5b
@@ -53,8 +52,11 @@ detect_doublets|function|568ab57fa9fb55a0
 plot_filtered_cells|function|69b6c107b1db6cf0
 plot_doublets|function|a5cafd9653a3b7af
 merge_seurat_objects|function|7bdb1486a8dac079
-plot_propeller_DPN_CTRL|function|80dcd7ae591b1aa4
+plot_propeller_DPN_CTRL|function|9d5f6ec0d00098d0
 predict_scRNAseq_heming|function|46fe32226947056e
 predict_scRNAseq_milbrandt|function|a40d11ed1610e977
 qc_metrics_table|function|4b85c4902d198522
 create_seurat_objects|function|3c82fbd52a8e50dc
+propeller_DPN_CIAP|stem|4bddd07633caa6c8|848b9b37b692917d|444315feef1eb100|-1993491763||t20289.6032337235s|s140761b|140761|qs|local|vector|||15.272||
+propeller_DPN_CIDP|stem|db91d4322492c0e8|f2363f9837ae7346|444315feef1eb100|1146017357||t20289.6033591395s|s146944b|146944|qs|local|vector|||9.26|ggrepel: 2 unlabeled data points (too many overlaps). Consider increasing max.overlaps|
+propeller_DPN_CTRL|stem|a6349c87bbaa5103|03396ebf4890f195|444315feef1eb100|237918110||t20289.6034830046s|s146772b|146772|qs|local|vector|||8.939||
